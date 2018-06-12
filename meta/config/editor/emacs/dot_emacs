@@ -1,0 +1,48 @@
+(load-file "/home/ice/.emacs.d/tuning_emacs/tuning_emacs.el")
+(load-file "/home/ice/.emacs.d/init.el")
+(load-file "/home/ice/.emacs.d/tuning_emacs/ecb.el")
+(load-file "/home/ice/.emacs.d/auto-complete/init-auto-complete.el")
+(load-file "/home/ice/.emacs.d/tuning_emacs/setup-python.el")
+
+(require 'evil)
+
+;customize emacs look and feel
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["black" "red" "green" "yellow" "royal blue" "magenta" "cyan" "white"])
+ '(custom-enabled-themes (quote (tsdh-dark)))
+ '(custom-safe-themes
+   (quote
+    ("0e91d917a613f30bf66da182e919e213ffaba16e9147b84da92204a7635231a5" default)))
+ '(ecb-options-version "2.50")
+ '(grep-find-ignored-files
+   (quote
+    (".#*" "*.o" "*~" "*.bin" "*.lbin" "*.so" "*.a" "*.ln" "*.blg" "*.bbl" "*.elc" "*.lof" "*.glo" "*.idx" "*.lot" "*.fmt" "*.tfm" "*.class" "*.fas" "*.lib" "*.mem" "*.x86f" "*.sparcf" "*.dfsl" "*.pfsl" "*.d64fsl" "*.p64fsl" "*.lx64fsl" "*.lx32fsl" "*.dx64fsl" "*.dx32fsl" "*.fx64fsl" "*.fx32fsl" "*.sx64fsl" "*.sx32fsl" "*.wx64fsl" "*.wx32fsl" "*.fasl" "*.ufsl" "*.fsl" "*.dxl" "*.lo" "*.la" "*.gmo" "*.mo" "*.toc" "*.aux" "*.cp" "*.fn" "*.ky" "*.pg" "*.tp" "*.vr" "*.cps" "*.fns" "*.kys" "*.pgs" "*.tps" "*.vrs" "*.pyc" "*.pyo" "GTAGS" "GRTAGS" "GPATH" "tags" "cscope.*" "BROWSE" ".emacs.desktop" "ctags" ".tmp_System.map" ".tmp_vmlinux*" "vmlinux" "ctags" "ID" "bookmark" "*.out" "*.elf")))
+ '(package-selected-packages
+   (quote
+    (irony evil helm-make zygospore ws-butler volatile-highlights virtualenv use-package undo-tree swiper stekene-theme smartparens python-info pyenv-mode pydoc-info pydoc popup-complete organic-green-theme iedit helm-swoop helm-pydoc helm-projectile helm-gtags helm-cscope ggtags flycheck-pyflakes elpy ecb duplicate-thing dtrt-indent company-c-headers comment-dwim-2 clean-aindent-mode auto-complete-exuberant-ctags auto-complete-clang-async auto-complete-clang auto-complete-c-headers apropospriate-theme anzu anti-zenburn-theme ac-etags ac-clang))))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "Ubuntu Mono" :foundry "unknown" :slant normal :weight normal :height 128 :width normal))))
+ '(comint-highlight-prompt ((t nil)))
+ '(font-lock-comment-face ((t (:foreground "gray"))))
+ '(helm-grep-file ((t (:foreground "sky blue" :underline t))))
+ '(helm-selection ((t (:background "dark slate gray" :distant-foreground "dim gray"))))
+ '(helm-source-header ((t (:background "#22083397778B" :foreground "white" :weight bold :height 0.9 :family "Sans Serif"))))
+ '(highlight-current-line-face ((t (:background "dim gray"))))
+ '(term-color-blue ((t (:background "royal blue" :foreground "royal blue")))))
