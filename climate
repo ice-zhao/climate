@@ -1,27 +1,91 @@
 #!/bin/bash
+#
+# =====================================================================================
+#
+#       Filename:  climate
+#
+#    Description:
+#
+#
+#        Version:  0.01
+#        License:
+#        Created:  11/06/2018 02:21:03 PM
+#       Revision:  none
+#
+#         Author:  ice.zhao (zhao yang)
+#         E-Mail:  smallbit@163.com
+#   Organization:
+#
+# =====================================================================================
+#
+ERR_OK=0
+ERR_KO=1
+HOME=${PWD}
+META=meta
+CONFIG=${META}/config
+SRC=${CONFIG}/src
+SRC_DIR=${HOME}/${SRC}
+LIB=lib
+LIB_DIR=${HOME}/${LIB}
 
-
-
-
+SUPER="sudo"
+# SUPER=""
 
 
 main() {
-    echo "main function"
+    # Usage
+    Check_net_connection
+    if [ "$?" -eq ${ERR_KO} ]; then
+        echo "network is unavailable."
+        exit 0
+    fi
+
+    declare -a pkg_src=()
+    pkg_src=(`Parse_src ${SRC_DIR}`)
+
+    ${SUPER} ${LIB_DIR}/install.sh ${pkg_src[*]}
+    exit 0
 }
 
 
 
+Usage() {
+	cat <<- EOF
+Usage: ${0##.*/}
+	EOF
+}
 
 
 
+Check_net_connection() {
+    local ip_addr='8.8.8.8'
+    local cmd=`which ping`
+
+    ${cmd} -c 4 ${ip_addr} > /dev/null
+
+    if [ "$?" -eq 0 ]; then
+        return ${ERR_OK}
+    else
+        return ${ERR_KO}
+    fi
+}
 
 
+Parse_src() {
+    # $1: input dir
 
+    local res_array=(`ls $1`)
+    local idx=0
 
+    for file in ${res_array[*]}; do
+        while read line; do
+            res_array[idx]=${line}
+            ((idx++))
+        done < ${1}/${file}
+    done
 
-
-
-
+    echo ${res_array[*]}
+}
 
 
 
