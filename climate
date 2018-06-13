@@ -18,32 +18,30 @@
 #
 # =====================================================================================
 #
-ERR_OK=0
-ERR_KO=1
-HOME=${PWD}
-META=meta
-CONFIG=${META}/config
-SRC=${CONFIG}/src
-SRC_DIR=${HOME}/${SRC}
-LIB=lib
-LIB_DIR=${HOME}/${LIB}
+INCLUDE=include
 
-SUPER="sudo"
-# SUPER=""
-
+. ${INCLUDE}/local.bh
+. ${INCLUDE}/err_type.bh
+. ${LIB}/log
 
 main() {
     # Usage
-    Check_net_connection
-    if [ "$?" -eq ${ERR_KO} ]; then
-        echo "network is unavailable."
-        exit 0
-    fi
+    # Check_net_connection
+    # if [ "$?" -eq ${ERR_KO} ]; then
+    #     echo "network is unavailable."
+    #     exit 0
+    # fi
 
     declare -a pkg_src=()
     pkg_src=(`Parse_src ${SRC_DIR}`)
 
-    ${SUPER} ${LIB_DIR}/install.sh ${pkg_src[*]}
+    # install packages
+    # ${SUPER} ${LIB_DIR}/install.sh ${pkg_src[*]}
+
+    # setup editor environment
+    ${LIB_DIR}/setup-editor.sh
+
+    Log ${pkg_src[*]}
     exit 0
 }
 
@@ -86,7 +84,6 @@ Parse_src() {
 
     echo ${res_array[*]}
 }
-
 
 
 
