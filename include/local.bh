@@ -1,0 +1,20 @@
+HOME=${PWD}
+META=meta
+CONFIG=${META}/config
+SRC=${CONFIG}/src
+SRC_DIR=${HOME}/${SRC}
+LIB=lib
+LIB_DIR=${HOME}/${LIB}
+
+
+
+
+
+
+SUPER="sudo"
+# SUPER=""
+
+
+
+
+DEBUG=1
