@@ -9,7 +9,7 @@
 
 
 main() {
-    # Backup_config
+    Backup_config
     Copy_editor_configuration
 }
 
