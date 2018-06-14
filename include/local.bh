@@ -2,6 +2,7 @@ HOME=${PWD}
 META=meta
 CONFIG=${META}/config
 SRC=${CONFIG}/src
+EDITOR=${CONFIG}/editor
 SRC_DIR=${HOME}/${SRC}
 LIB=lib
 LIB_DIR=${HOME}/${LIB}
