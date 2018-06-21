@@ -10,7 +10,7 @@
 
 
 main() {
-    Backup_config
+    Backup_emacs_config
     Backup_vim_config
     Copy_editor_configuration
 }
@@ -18,7 +18,7 @@ main() {
 
 
 
-Backup_config() {
+Backup_emacs_config() {
     local user_name=`whoami`
     local backup='backup'
 
@@ -57,8 +57,6 @@ Backup_config() {
         exec 8>&-
     fi
 
-    # backup vim configuration
-    # Log ${emacs_dir}
     return 0
 }
 
@@ -107,6 +105,23 @@ Copy_emacs_config() {
 }
 
 Copy_vim_config() {
+    local cli_vim_dir=${EDITOR}/vim
+    local cli_vim_etc_dir=${vim_dir}/etc/vim
+    local cli_dot_vimrc=${cli_vim_dir}/dot_vimrc
+    local cli_vim_local=${cli_vim_etc_dir}/vimrc.local
+    local user_name=`whoami`
+    local home="/home/${user_name}"
+    local user_vim_dir="/etc/vim"
+
+    if [ -f ${cli_dot_vimrc} ]; then
+        cp -rf ${cli_dot_vimrc} ${home}/.vimrc
+        # Log ${cli_dot_vimrc}
+    fi
+
+    if [ -d ${user_vim_dir} ]; then
+        ${SUPER} cp -rf ${cli_vim_local} ${user_vim_dir}
+        # Log ${user_vim_dir}
+    fi
 
     install_vim_addons
     return 0
@@ -122,7 +137,7 @@ install_vim_addons() {
 
     if [ -x ${vim_addon} ]; then
         for addon in ${addons[*]}; do
-            # ${vim_addon} ${options} ${addon} >/dev/null 2>&1
+            ${vim_addon} ${options} ${addon} >/dev/null 2>&1
             # Log ${addon}
             return 0
         done

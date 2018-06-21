@@ -26,18 +26,18 @@ INCLUDE=include
 . ${LIB}/parse
 
 main() {
-    # Usage
+    Usage
     # Check_net_connection
-    # if [ "$?" -eq ${ERR_KO} ]; then
-    #     echo "network is unavailable."
-    #     exit 0
-    # fi
+    if [ "$?" -eq ${ERR_KO} ]; then
+        echo "network is unavailable."
+        exit 0
+    fi
 
     declare -a pkg_src=()
     pkg_src=(`Parse_src ${SRC_DIR}`)
 
     # install packages
-    # ${SUPER} ${LIB_DIR}/install.sh ${pkg_src[*]}
+    ${SUPER} ${LIB_DIR}/install.sh ${pkg_src[*]}
 
     # setup editor environment
     ${LIB_DIR}/setup-editor.sh
