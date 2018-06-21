@@ -3,3 +3,7 @@ gnutls-bin
 emacs-goodies-el
 emacs-intl-fonts
 emacs-window-layout
+vim-addon-manager
+vim-gnome
+vim-gtk
+vim-gui-common

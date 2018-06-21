@@ -1,0 +1,121 @@
+
+
+au BufWinLeave *.[hcSs] mkview
+au BufWinEnter *.[hcSs] silent loadview
+
+
+au BufWinLeave *.cpp mkview
+au BufWinEnter *.cpp silent loadview
+
+
+:ia iz. Author: ice.zhao
+:ia //iz. Author: ice.zhao
+:ia /*iz. Author: ice.zhao
+
+
+syntax enable
+
+"colorscheme elflord
+
+nnoremap <C-\>l :CCTreeLoadDB <CR><CR>
+
+
+
+"set foldmethod=syntax
+"set foldnestmax=10
+"set nofoldenable
+"set foldlevel=0
+
+
+"winmanager
+nmap <C-w><C-f> :FirstExplorerWindow<cr>
+nmap <C-w><C-b> :BottomExplorerWindow<cr>
+
+let g:EchoFuncKeyNext = '<C-b>' "backward
+let g:EchoFuncKeyPrev = '<C-f>' "foreward
+
+
+let MRU_File = '/home/ice/.vim/_vim_mru_files'
+nmap <C-x><C-b> :ConqueTerm bash<cr>
+
+
+set hlsearch
+set noswapfile
+
+set foldmethod=syntax
+set foldlevel=0
+
+:highlight Folded ctermfg=7 ctermbg=8
+
+"toggle taglist
+nnoremap tw :TlistToggle<CR>
+
+"winmanager 
+nnoremap wm :WMToggle<CR>
+
+set wildmenu
+
+source $VIMRUNTIME/menu.vim
+set wildmenu
+set cpo-=<
+set wcm=<C-Z>
+map <F4> :emenu <C-Z>
+
+set tabstop=4
+set autoindent
+set cindent
+
+set pastetoggle=<F12>
+
+"disable PyLint
+let g:pymode_lint = 0
+
+filetype plugin indent on
+
+set fileencodings=utf-8,GB2312
+
+set history=700
+
+set so=3
+
+" Ignore compiled files
+set wildignore=*.o,*~,*.pyc
+
+" When searching try to be smart about cases 
+set smartcase
+
+" Makes search act like search in modern browsers
+set incsearch
+
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
+
+" For regular expressions turn magic on
+set magic
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
+
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowb
+set noswapfile
+
+
+
+
+
+
+
+
+
+
+
+
+

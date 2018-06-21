@@ -1,0 +1,15 @@
+Parse_src() {
+    # $1: input dir
+
+    local res_array=(`ls $1`)
+    local idx=0
+
+    for file in ${res_array[*]}; do
+        while read line; do
+            res_array[idx]=${line}
+            ((idx++))
+        done < ${1}/${file}
+    done
+
+    echo ${res_array[*]}
+}

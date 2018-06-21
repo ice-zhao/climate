@@ -23,6 +23,7 @@ INCLUDE=include
 . ${INCLUDE}/local.bh
 . ${INCLUDE}/err_type.bh
 . ${LIB}/log
+. ${LIB}/parse
 
 main() {
     # Usage
@@ -41,7 +42,7 @@ main() {
     # setup editor environment
     ${LIB_DIR}/setup-editor.sh
 
-    Log ${pkg_src[*]}
+    # Log ${pkg_src[*]}
     exit 0
 }
 
@@ -67,33 +68,6 @@ Check_net_connection() {
         return ${ERR_KO}
     fi
 }
-
-
-Parse_src() {
-    # $1: input dir
-
-    local res_array=(`ls $1`)
-    local idx=0
-
-    for file in ${res_array[*]}; do
-        while read line; do
-            res_array[idx]=${line}
-            ((idx++))
-        done < ${1}/${file}
-    done
-
-    echo ${res_array[*]}
-}
-
-
-
-
-
-
-
-
-
-
 
 
 
