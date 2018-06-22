@@ -1,7 +1,7 @@
 #!/bin/bash
 
 INSTALL="apt-get"
-OPT="install"
+OPT="install --yes -q"
 
 
 
