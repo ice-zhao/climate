@@ -12,7 +12,6 @@ gksu
 python-pip
 catfish
 inxi
-gnome-session-flashback
 numlockx
 synaptic
 dconf-tools

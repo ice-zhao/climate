@@ -34,7 +34,7 @@ main() {
     fi
 
     declare -a pkg_src=()
-    pkg_src=(`Parse_src ${SRC_DIR}`)
+    pkg_src=(`Parse_src ${SRC_DIR} "*.src"`)
 
     # install packages
     ${SUPER} ${LIB_DIR}/install.sh ${pkg_src[*]}
