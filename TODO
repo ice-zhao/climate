@@ -1,1 +1,2 @@
 1. 64bit linux supports 32-bit program.
+2. pip3 install selenium, bs4

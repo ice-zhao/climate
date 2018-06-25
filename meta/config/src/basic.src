@@ -7,5 +7,7 @@ cscope
 cscope-el
 exuberant-ctags
 python
+python3
+python-selenium
 gnutls-bin
 gnutls-doc
