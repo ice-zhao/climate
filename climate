@@ -49,7 +49,7 @@ main() {
 		fi
 	done
 
-    # Check_net_connection
+    Check_net_connection
     if [ "$?" -eq ${ERR_KO} ]; then
         echo "network is unavailable."
         exit 0
