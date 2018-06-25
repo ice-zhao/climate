@@ -1,7 +1,8 @@
 #!/bin/bash
 
 INSTALL="apt-get"
-OPT="install --yes -q"
+AUTOREMOVE="--auto-remove"
+OPT="install --yes -q=2 ${AUTOREMOVE}"
 
 
 

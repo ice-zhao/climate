@@ -1,4 +1,5 @@
 #!/bin/bash
+# set -x
 #
 # =====================================================================================
 #
@@ -26,7 +27,28 @@ INCLUDE=include
 . ${LIB}/parse
 
 main() {
-    Usage
+    local error=false
+    while getopts "ivc:" opt
+	do
+		case $opt in
+			c)
+				;;
+			i)
+				;;
+			v)
+				Usage
+				;;
+			*)
+				Usage
+				error=true
+				;;
+		esac
+
+		if test ${error} = true ; then
+			exit -2
+		fi
+	done
+
     # Check_net_connection
     if [ "$?" -eq ${ERR_KO} ]; then
         echo "network is unavailable."
@@ -50,7 +72,8 @@ main() {
 
 Usage() {
 	cat <<- EOF
-Usage: ${0##.*/}
+Usage: ${0##.*/} 0.0.1 [ -v ]
+    -v: show climate version and help.
 	EOF
 }
 
