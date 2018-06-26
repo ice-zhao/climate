@@ -82,7 +82,7 @@ Copy_emacs_config() {
         tar -Jxf ${emacs_d_tarball##*/} 2>&1 &
         wait
         popd
-        exec 8>&1
+        exec 1>&8
         exec 8>&-
     fi
 
@@ -106,7 +106,7 @@ Copy_emacs_config() {
 
 Copy_vim_config() {
     local cli_vim_dir=${EDITOR}/vim
-    local cli_vim_etc_dir=${vim_dir}/etc/vim
+    local cli_vim_etc_dir=${cli_vim_dir}/etc/vim
     local cli_dot_vimrc=${cli_vim_dir}/dot_vimrc
     local cli_vim_local=${cli_vim_etc_dir}/vimrc.local
     local user_name=`whoami`
