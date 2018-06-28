@@ -8,6 +8,10 @@ cscope-el
 exuberant-ctags
 python
 python3
+python3-pkg-resources
+python3-setuptools
+virtualenvwrapper
 python-selenium
 gnutls-bin
 gnutls-doc
+phantomjs
