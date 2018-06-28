@@ -15,3 +15,5 @@ python-selenium
 gnutls-bin
 gnutls-doc
 phantomjs
+xfonts-intl-chinese
+xfonts-intl-chinese-big

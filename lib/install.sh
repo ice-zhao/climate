@@ -9,6 +9,7 @@ OPT="install --yes -q=2 ${AUTOREMOVE}"
 
 
 main() {
+    Check_pkg_mgmt
     Install_pkg $@
 
 }
@@ -28,7 +29,12 @@ Install_pkg() {
     done
 }
 
-
+Check_pkg_mgmt() {
+    local apt_lock_file='/var/lib/dpkg/lock'
+    if [ -e ${apt_lock_file} ]; then
+        rm -rf ${apt_lock_file}
+    fi
+}
 
 
 
